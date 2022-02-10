@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wordle-draw/static/css/main.0902944c.css",
+    "main.js": "/wordle-draw/static/js/main.c45bfd1f.js",
+    "static/js/787.1810796b.chunk.js": "/wordle-draw/static/js/787.1810796b.chunk.js",
+    "index.html": "/wordle-draw/index.html",
+    "main.0902944c.css.map": "/wordle-draw/static/css/main.0902944c.css.map",
+    "main.c45bfd1f.js.map": "/wordle-draw/static/js/main.c45bfd1f.js.map",
+    "787.1810796b.chunk.js.map": "/wordle-draw/static/js/787.1810796b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0902944c.css",
+    "static/js/main.c45bfd1f.js"
+  ]
+}
