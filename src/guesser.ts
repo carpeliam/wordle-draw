@@ -3,11 +3,9 @@ export type WordGuess = [LetterGuess, LetterGuess, LetterGuess, LetterGuess, Let
 export type Guesses = WordGuess[];
 
 export function createGuesser(dictionary: string[], answers: string[]) {
+    const fullDictionary = () => [...shuffle(answers), ...shuffle(dictionary)];
     function guesser(guesses: Guesses, answer: string): string[] {
-        return guesses.map((guess, i) => {
-            const choices = i === guesses.length - 1 && guessIsCorrect(guess) ? answers : dictionary;
-            return findMatch(guess, answer, choices)!;
-        });
+        return guesses.map(guess => findMatch(guess, answer, fullDictionary())!);
     }
     return guesser;
 }
@@ -29,7 +27,20 @@ function findMatch(guess: WordGuess, answer: string, words: string[]) {
     
     return words.find(word => regex.test(word));
 }
-const guessIsCorrect = (guess: WordGuess) => guess.every(letter => letter === '🟩');
+
+// Fisher–Yates shuffle implementation stolen from https://stackoverflow.com/a/2450976
+export function shuffle(array: string[]) {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
 
 
 const allAnswers = [
