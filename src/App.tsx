@@ -43,7 +43,7 @@ function gridString(grid: string[][]) {
 
 function App() {
   const [grid, setGrid] = useState(defaultGrid);
-  const [guesses, setGuesses] = useState<string[]>([]);
+  const [guesses, setGuesses] = useState<(string | undefined)[]>([]);
   const answerElem = useRef<HTMLInputElement>(null);
   function update(location: [number, number], newColor: LetterGuess) {
     const [x, y] = location;
@@ -62,7 +62,7 @@ function App() {
   }
   function showGuesses() {
     return guesses.map((guess, i) => (
-      <div key={`${guess}-${i}`}>{guess}</div>
+      <div key={`${guess}-${i}`}>{guess || (<em>no suitable word found, please art again</em>)}</div>
     ));
   }
   return (

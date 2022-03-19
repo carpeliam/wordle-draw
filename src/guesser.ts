@@ -4,8 +4,8 @@ export type Guesses = WordGuess[];
 
 export function createGuesser(dictionary: string[], answers: string[]) {
     const fullDictionary = () => [...shuffle(answers), ...shuffle(dictionary)];
-    function guesser(guesses: Guesses, answer: string): string[] {
-        return guesses.map(guess => findMatch(guess, answer, fullDictionary())!);
+    function guesser(guesses: Guesses, answer: string) {
+        return guesses.map(guess => findMatch(guess, answer, fullDictionary()));
     }
     return guesser;
 }

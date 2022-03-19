@@ -11,7 +11,7 @@ Object.assign(navigator, {
 });
 
 describe('App', () => {
-  let mockGuesser: jest.SpyInstance<string[], [guesser.Guesses, string]>;
+  let mockGuesser: jest.SpyInstance<(string | undefined)[], [guesser.Guesses, string]>;
   beforeEach(() => {
     jest.spyOn(navigator.clipboard, 'writeText');
     mockGuesser = jest.spyOn(guesser, 'default');
